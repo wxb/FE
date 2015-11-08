@@ -56,7 +56,8 @@ upload_tmp_dir =/tmp/www
 ``` 
 配置引用说明：
 > * [post_max_size](http://php.net/manual/zh/ini.core.php#ini.post-max-size)    
-> post_max_size 涉及了memory_limit, upload_max_filesize关系。简单来说就是：memory_limit > post_max_size > upload_max_filesize    
-> * [file-uploads](http://php.net/manual/zh/ini.core.php#ini.file-uploads)
-> 
+> post_max_size 涉及了memory_limit, upload_max_filesize关系。简单来说就是：memory_limit > post_max_size > upload_max_filesize      
+> ![post_max_size](1.png)
+> * [file-uploads](http://php.net/manual/zh/ini.core.php#ini.file-uploads)    
+> ![file_uploads](2.png)
 
