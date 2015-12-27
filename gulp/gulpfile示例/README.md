@@ -4,7 +4,7 @@
 
 ## NO.01 gulp官方给出的一个简单的配置示例：
 
-```
+```js
 var gulp = require('gulp');
 var coffee = require('gulp-coffee');
 var concat = require('gulp-concat');
@@ -58,7 +58,7 @@ gulp.task('default', ['watch', 'scripts', 'images']);
 
 ## NO.02 我的gulpfile.js  
 
-```
+```js
 /**
  * gulp demo 配置文件
  * 根据此学习配置文件，可以在使用时适当修改应用
