@@ -21,7 +21,7 @@ Gulp是基于nodejs的，所以首先需要对node有所了解，明白如何通
  
  2. npm初始化一个项目：demo   
  
-     ```
+     ```shell
      $ mkdir demo && cd demo  
      $ npm init   
      ```
@@ -38,7 +38,7 @@ Gulp是基于nodejs的，所以首先需要对node有所了解，明白如何通
  
  4. 在项目根目录下创建一个名为 gulpfile.js 的文件：    
  
-     ```
+     ```js
      var gulp = require('gulp');     
      gulp.task('default', function() {     
      // 将你的默认的任务代码放在这    
@@ -60,7 +60,7 @@ gulp 相对于grunt简单是因为：gulp构建简单，快速，易学，很少
 
 # gulpfile.js 配置  
 
-```
+```js
 /**
  * gulp demo 配置文件
  * 根据此学习配置文件，可以在使用时适当修改应用
