@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/*
+@import "compass/reset";
+*/
+/**
+ * 高度
+ */
+#main {
+  width: 5em;
+  height: 50em; }
+  #main .content {
+    color: red; }
+
+a {
+  font-weight: bold;
+  text-decoration: none; }
+  a :hover {
+    text-decoration: underline; }
+  body.firefox a {
+    font-weight: normal; }
+
+a {
+  font-weight: bold;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+  body.firefox a {
+    font-weight: normal; }
+
+#main {
+  color: black; }
+  #main a {
+    font-weight: bold; }
+    #main a:hover {
+      color: red; }
+
+.funky {
+  font-family: fantasy;
+  font-size: 30em;
+  font-weight: bold; }
+
+/*# sourceMappingURL=screen.css.map */

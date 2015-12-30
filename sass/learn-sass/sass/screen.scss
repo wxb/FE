@@ -1,0 +1,46 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/*
+@import "compass/reset";
+*/
+@import 'variables';  // 注意单引号和双引号都是可以的
+#main {
+  width: $width;
+  height: $height;
+
+  .content{
+  	color: red;
+  }
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  :hover { text-decoration: underline; }
+  body.firefox & { font-weight: normal; }
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+  body.firefox & { font-weight: normal; }
+}
+
+#main {
+  color: black;
+  a {
+    font-weight: bold;
+    &:hover { color: red; }
+  }
+}
+
+.funky {
+  font: {
+    family: fantasy;
+    size: 30em;
+    weight: bold;
+  }
+}
