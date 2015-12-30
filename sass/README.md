@@ -63,15 +63,18 @@ sass中添加注释和大多数语言一样：`//` - 行注释；`/*   */`块注
 ![](1.png)
 
 # sass 变量声明
-* sass中变量声明有点类似php使用 `$`   
+* sass中变量声明有点类似php使用 `$`  
+
 * 如果变量需要镶嵌在字符串之中，就必须需要写在#{}之中
 ```sass
 $side : left;
-　　.rounded {
-　　　　border-#{$side}-radius: 5px;
-　　}
+.rounded {
+　　border-#{$side}-radius: 5px;
+}
 ```
-* 变量也有作用域   
+
+* 全局定义：!global ,这样你就可以在任何地方定义变量，在任何地方使用变量 
+![](7.png)   
 
 # sass 文件引入 
 

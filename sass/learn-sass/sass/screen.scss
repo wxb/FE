@@ -44,3 +44,12 @@ a {
     weight: bold;
   }
 }
+
+#main {
+  $width: 5em !global;
+  width: $width;
+}
+
+#sidebar {
+  width: $width;
+}
