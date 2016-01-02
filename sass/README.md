@@ -109,11 +109,130 @@ sass不光提供了类的嵌套，还提供了属性的嵌套,注意属性的嵌
    
 ![](6.png)
 
+# sass 以命令行交互形式
+
+sass 提供了一个简单的命令行交互形式来运行sass语法： 
+
+```bash
+
+$ sass -i
+>> 
+
+```
+
+更多关于sass用法参见`sass -h`   
+
+# sass 数据类型
+
+* 数字（例如 1.2、13、10px）  
+* 文本字符串，无论是否有引号（例如 "foo"、'bar'、baz）   
+* 颜色（例如 blue、#04a3f9、rgba(255, 0, 0, 0.5)）    
+* 布尔值（例如 true、false）    
+* 空值（例如 null）    
+* 值列表，用空格或逗号分隔（例如 1.5em 1em 0 2em、Helvetica, Arial, sans-serif）    
+
+SassScript 还支持所有其他 CSS 属性值类型， 例如 Unicode 范围和 !important 声明。 然而，它不会对这些类型做特殊处理。 它们只会被当做不带引号的字符串看待。
+
+# sass 运算符
+
+等式运算（`==` 和 `!=`）: 所有数据类型支持    
+数字运算 (加 `+`、减 `-`、乘 `*`、除 `/`和取模 `%`): 数据类型支持，数字也支持关系运算（`<`、`>`、`<=`、`>=`); 注意 除法 `/` 有特殊用法：  
+
+> 除法运算和 /
+
+> CSS 允许 / 出现在属性值里，作为分隔数字的一种方法。 既然 SassScript 是 CSS 属性语法的扩展， 他就必须支持这种语法，同时也允许 / 用在除法运算上。 也就是说，默认情况下，在 SassScript 里用 / 分隔的两个数字， 都会在 CSS 中原封不动的输出。
+
+> 然而，在以下三种情况中，/ 会被解释为除法运算。 这就覆盖了绝大多数真正使用除法运算的情况。 这些情况是：
+
+> 如果数值或它的任意部分是存储在一个变量中或是函数的返回值。
+如果数值被圆括号包围。
+如果数值是另一个数学表达式的一部分。
+
+布尔运算：支持布尔值做 and、or 和 not 运算
+
+# sass 中的（）
+
+同其他语言一样，圆括号可以用来改变运算顺序
 
 
-
-
+# sass 在选择器和属性中使用变量：#{} 
   
+```sass 
 
+$name: foo;
+$attr: border;
+p.#{$name} {
+  #{$attr}-color: blue;
+}
+
+p {
+  $font-size: 12px;
+  $line-height: 30px;
+  font: #{$font-size}/#{$line-height};
+}
+
+```
+
+# sass 函数 
+
+* 内置函数  
+    ```sass
+    hsl($hue, $saturation, $lightness)    
+    rgb($red, $green, $blue)
+    opacify($color, $amount) / fade-in($color, $amount)
+    ```
+    更多内置函数请参见：[Module: Sass::Script::Functions](http://sass-lang.com/documentation/Sass/Script/Functions.html)
+
+* mixin 可重用的代码块    
+    定义一个Mixin：`@mixin`
+    ```sass
+    @mixin large-text {
+      font: {
+        family: Arial;
+        size: 20px;
+        weight: bold;
+      }
+      color: #ff0000;
+    }
+    ```
+    
+    通过`@include`引入`mixin`  
+    ```sass
+    .page-title {
+      @include large-text;
+      padding: 4px;
+      margin-top: 10px;
+    }
+    ``
+
+# 变量默认值： !default
+
+在变量尚未赋值前，通过在值的末尾处添加 !default 标记来为其指定。 也就是说，如果该变量已经被赋值， 就不会再次赋值， 但是，如果还没有被赋值，就会被指定一个值。
+
+![](8.png)
+
+# sass 控制命令 
+
+* @if   
+
+![](9.png)  
+    
+* @for
+
+![](10.png)
+
+* @each
+
+![](11.png)
+
+* @while
+
+![](12.png)
+
+_____
+
+# 总结  
+
+关于sass的学习就暂时总结这么多，更多，更深刻的用法还需要在实践中多多学习
 
 
