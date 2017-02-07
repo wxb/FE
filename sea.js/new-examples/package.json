@@ -1,0 +1,15 @@
+{
+  "name": "new-examples",
+  "version": "1.0.0",
+  "description": "seajs 官方示例基于npm管理重新构建",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wangxb",
+  "license": "ISC",
+  "devDependencies": {
+    "jquery": "^1.12.4",
+    "seajs": "^2.2.0"
+  }
+}

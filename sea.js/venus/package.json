@@ -1,0 +1,29 @@
+{
+  "family": "wangxb",
+  "name": "venus",
+  "version": "1.0.0",
+  "description": "venus test",
+  "homepage": "https://github.com/wxb/FE",
+  "author": "wangxb",
+  "maintainers": [
+    "wangxb"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wxb/FE.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "output": [
+      "venus.js",
+      "venus.css"
+    ],
+    "alias": {},
+    "devAlias": {},
+    "engines": {}
+  }
+}

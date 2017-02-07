@@ -1,0 +1,33 @@
+<html>
+<head>
+    <script src="http://cdn.bootcss.com/jquery/1.10.1/jquery.js"></script>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        $(function(){
+            //在这里面写Vue.js代码
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello Vue.js! '
+                }
+            });
+
+        });
+</script>
+</head>
+
+<body>
+<div id="app">
+    <input type="text" v-model="message" value="" placeholder="在这里输入看看">
+    <div>
+        {{ message }}
+
+    </div>
+</div>
+<div></div>
+<div>
+
+</div>
+</body>
+
+</html>
