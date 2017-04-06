@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">.col-md-8</div>
+      <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">.col-md-6</div>
+      <div class="col-md-6">.col-md-6</div>
+    </div>
+<hr>
+    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+    <code> 
+          col-xs-* 和 col-md-* 这样的栅格参数 在同一个class设置两个，bootstrap会很智能的识别设备尺寸然后选择应该使用哪个宽度
+          也就是说当我们在 pc上浏览的时候 ，bootstrap就会使 col-md-* 起作用
+          当在手机等小屏情况下， bootstrap就会 相当于 注释掉 col-md-* 一样，只让col-xs-* 起作用，这样就达到了响应式的目的
+    </code>
+    <div class="row">
+      <div class="col-xs-2 col-md-12">.col-xs-12 .col-md-8</div>
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+    </div>
+
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+    </div>
+
+    <!-- Columns are always 50% wide, on mobile and desktop -->
+    <div class="row">
+      <div class="col-xs-6">.col-xs-6</div>
+      <div class="col-xs-6">.col-xs-6</div>
+    </div>
+  <hr>
+    <div class="row">
+      <div class="col-xs-9">.col-xs-9</div>
+      <div class="col-xs-4">.col-xs-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
+      <div class="col-xs-6">.col-xs-6<br>Subsequent columns continue along the new line.</div>
+    </div>
+  <hr>
+    <div class="row">
+      <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+      <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+
+      <!-- Add the extra clearfix for only the required viewport -->
+      <div class="clearfix visible-xs-block">.col-xs-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
+
+      <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+      <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+    </div>
+
+
+
+  </div><!-- end container-->
+
+  
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
