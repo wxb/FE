@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+</style>
+
+<script src="./jquery-1.11.2.js"></script>
+<script type="text/javascript">
+    /**
+     * 关于HTML5 drag&drop api 演示示例
+     * 主要表明学习过程中需要注意的地方
+     * 
+     */
+    window.onload = function(){
+        var dragDiv = document.getElementById('drag_div');
+        var dropDiv = document.getElementById('drop_div');
+
+        /**
+         * 虽然 drag事件包括下面：
+         * dragstart、dragenter、dragover、dragleave、drag、drop、dragend
+         * 完成一次成功页面内元素拖拽的行为事件过程应该是： 
+         * dragstart –> dragenter –> dragover –> drop –> dragend
+         * 但是我们比较常用到的还是下面这三个：
+         * dragstart、dragover、drop
+         */
+        dragDiv.addEventListener('dragstart', function(e){
+            e.dataTransfer.setData('text/plain', 'This text may be dragged');
+            
+        });
+
+        dropDiv.addEventListener('dragover', function(e){
+            // 默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式。
+            // 这要通过调用 ondragover 事件的 event.preventDefault() 方法：
+            e.preventDefault();
+            
+            console.info(e.dataTransfer.getData('text/plain'));
+        });
+
+        dropDiv.addEventListener('drop', function(e){
+            //console.log(e);
+            console.info(e.dataTransfer.getData('text/plain'));
+        });
+    }
+    
+</script>
+</head>
+<body>
+<div>
+    <!-- 
+        为了使HTML元素可以被拖动，需要设置： draggable="true"
+        draggable=false 表示不许拖动
+        draggable缺省值也是不许拖动，但是 text选择框，images图片和链接 缺省是可以拖动的，如果要不能拖动，需要显示设置 draggable=false
+    -->
+    <div id="drag_div" draggable="true" style="background-color: red;">
+      This div can be dragged. try it;
+    </div>
+    <div id="drop_div" style="width:500px; height:300px; background-color: green;" >
+        
+    </div>
+</div>
+</body>
+</html>

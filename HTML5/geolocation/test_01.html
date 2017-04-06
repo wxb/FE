@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+    /**
+     * 使用地理位置定位 API 的详细信息可以学习： 
+     * https://developer.mozilla.org/zh-CN/docs/Web/API/Geolocation/Using_geolocation
+     * 这个页面有详细的使用指导，很容易学习使用。
+     */
+
+    /**
+     * 检查地理位置服务是否可用方法
+     * @return {[type]} [description]
+     */
+    function checkGeoLocation(){
+        if ("geolocation" in navigator) {    
+          /* 地理位置服务可用 */
+            alert("ok, 您的设备支持获取地理位置功能");
+        } else {
+          /* 地理位置服务不可用 */
+            alert("ok, 您的设备不支持获取地理位置功能");
+        }
+    }
+
+     
+
+    function getLocationInfo(){
+        var output = document.getElementById('out');
+
+        if(!navigator.geolocation){
+            output.innerHTML = "<p><您的浏览器不支持地理位置</p>";
+            return false;
+        }
+        /**
+         * 地理位置获取成功的回调函数
+         * @param  {[type]} position [description]
+         * @return {[type]}          [description]
+         */
+        function success(position){
+            var latitude  = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            console.info(latitude+'-'+longitude);
+            output.innerHTML = '<p>Latitude is ' + latitude + '° Longitude is ' + longitude + '°</p>海拔：'+position.coords.altitude+' time stamp'+position.timestamp ;
+
+            // 请求百度地图 - 静态图API
+            // http://developer.baidu.com/map/index.php?title=static
+            // 
+            var img = new Image();
+            img.src = "http://api.map.baidu.com/staticimage?center="+longitude+","+latitude+"&width=300&height=200&zoom=14";
+            output.appendChild(img);
+        }
+        
+        /**
+         * 地理位置获取失败的回调函数
+         * @return {[type]} [description]
+         */
+        function error(error) {
+            output.innerHTML = "无法获取您的位置, 错误码："+error.code+" 错误原因："+error.message;
+        }
+
+        output.innerHTML = "<p><Locating…</p>";
+        var geo = navigator.geolocation;
+        geo.getCurrentPosition(success, error);
+    }
+</script>
+</head>
+<body>
+检查您的设备是否支持"获取位置"功能<br/>
+<button onclick="checkGeoLocation()">检查</button>
+<hr/>
+点击按钮获取您的位置信息<br/>
+<button onclick="getLocationInfo()">获取位置</button>
+<hr/>
+<div id="out"></div>
+</body>
+</html>

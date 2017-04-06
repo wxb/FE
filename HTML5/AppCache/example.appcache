@@ -1,0 +1,13 @@
+CACHE MANIFEST
+# v1 - 2015-05-6 12:18:00 (Version 版本号，强烈建议设置，因为只有更新了manifest清单文件，浏览器才会进行update更新缓存的操作)
+# 这是一个manifest清单文件，这里CACHE段落中列出了需要缓存的文件.
+cache_1.txt
+cache_2.html
+
+# 列出的文件是需要与服务器连接的白名单资源。所有类似资源的请求都会绕过缓存，即使用户处于离线状态。可以使用通配符
+NETWORK:
+ApplicationCache笔记.md
+
+#段指定了一个后备页面，当资源无法访问时，浏览器会使用该页面。该段落的每条记录都列出两个URI—第一个表示资源，第二个表示后备页面。两个 URI 都必须使用相对路径并且与清单文件同源。可以使用通配符
+FALLBACK:
+fallback.html fallback/fallback.html

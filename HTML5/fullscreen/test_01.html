@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+    
+    function fullScreen(){
+        var elem = document.getElementById("myvideo");
+        if (elem.requestFullscreen) {
+            console.info(1);
+          elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+            // 对于Mozilla的Firefox浏览器内核，使用mozRequestFullScreen来激活全屏
+            console.info("Mozilla Firefox kernel");
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+            // 对于Google的chrome内核使用webkitRequestFullscreen来激活全屏
+            console.info("Google Chrome kernel");
+          elem.webkitRequestFullscreen();
+        }
+    }
+    
+    function toggleFullScreen(fsObj) {
+        // 判断浏览器目前是否处在全屏状态
+      if (!document.fullscreenElement &&    // 替代的标准方法
+          !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // 目前的工作方法
+        if (fsObj.requestFullscreen) {
+          fsObj.requestFullscreen();
+        } else if (fsObj.mozRequestFullScreen) {
+          fsObj.mozRequestFullScreen();
+        } else if (fsObj.webkitRequestFullscreen) {
+          fsObj.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+        }
+      } else {
+        if (document.cancelFullScreen) {
+          document.cancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        }
+      }
+    }
+
+    /**
+     * 注册键盘操作事件
+     * @param  {[type]} e)    {                 if (e.keyCode [description]
+     * @param  {[type]} false [description]
+     * @return {[type]}       [description]
+     */
+    document.addEventListener("keydown", function(e) {
+        // 需要全屏切换的元素对象
+        var elem = document.getElementById("myvideo");
+        // 注册全屏切换显示到 "enter" 按键按下
+      if (e.keyCode == 13) {
+        toggleFullScreen(elem);
+      }
+      // 通过空格键控制视频播放与暂停
+      if(e.keyCode == 32){
+        // 关于video对象更多使用：
+        // https://msdn.microsoft.com/library/ff975073.aspx
+        // https://msdn.microsoft.com/library/hh924822.aspx
+        elem.paused ? elem.play() : elem.pause();
+      }
+      if(e.keyCode == 113){
+        elem.controls == true ? elem.setAttribute("controls", false) : elem.setAttribute("controls", true);
+      }
+    }, false);
+    
+</script>
+</head>
+<body>
+<video controls autoplay poster src="http://videos-cdn.mozilla.net/serv/webmademovies/Moz_Doc_0329_GetInvolved_ST.webm"
+width="640" height="360" id="myvideo"></video>
+
+<div id="out"><button onclick="fullScreen()">全屏</button></div>
+</body>
+</html>

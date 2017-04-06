@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+var takePicture = document.querySelector("#take-picture");
+takePicture.onchange = function (event) {
+    // 获得图片文件的引用
+    var files = event.target.files,
+        file;
+    if (files && files.length > 0) {
+        file = files[0];
+    }
+};
+</script>
+</head>
+<body>
+拍照<br/>
+<input type="file" id="take-picture" accept="image/*">
+<div id="out"></div>
+</body>
+</html>

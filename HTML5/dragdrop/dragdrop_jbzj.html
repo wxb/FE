@@ -1,0 +1,80 @@
+ 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<style> 
+.img-div img { 
+width:200px; 
+height:200px; 
+float: left; 
+} 
+.img-div { 
+float: left; 
+} 
+.drop-left,.drop-right { 
+width: 50px; 
+height: 200px; 
+float: left; 
+} 
+</style> 
+<script src="./jquery-1.11.2.js"></script> 
+<script> 
+$(document).ready(function() { 
+
+// 正在拖动的图片的父级DIV 
+var $srcImgDiv = null; 
+
+// 开始拖动 
+$(".img-div img").bind("dragstart", function() { 
+$srcImgDiv = $(this).parent(); 
+}); 
+
+// 拖动到.drop-left,.drop-right上方时触发的事件 
+$(".drop-left,.drop-right").bind("dragover", function(event) { 
+
+// 必须通过event.preventDefault()来设置允许拖放 
+event.preventDefault(); 
+}); 
+
+// 结束拖动放开鼠标的事件 
+$(".drop-left").bind("drop", function(event) { 
+event.preventDefault(); 
+if($srcImgDiv[0] != $(this).parent()[0]) { 
+    console.info($srcImgDiv[0]);
+    console.log($(this).parent());
+$(this).parent().before($srcImgDiv); 
+} 
+}); 
+$(".drop-right").bind("drop", function(event) { 
+event.preventDefault(); 
+if($srcImgDiv[0] != $(this).parent()[0]) { 
+$(this).parent().after($srcImgDiv); 
+} 
+}); 
+
+}); 
+</script> 
+</head> 
+<body> 
+<div class="img-div"> 
+<div class="drop-left"></div> 
+<img src="http://photos.tuchong.com/38538/f/6864556.jpg" draggable="true"> 
+<div class="drop-right"></div> 
+</div> 
+<div class="img-div"> 
+<div class="drop-left"></div> 
+<img src="http://photos.tuchong.com/349669/f/6695960.jpg" draggable="true"> 
+<div class="drop-right"></div> 
+</div> 
+<div class="img-div"> 
+<div class="drop-left"></div> 
+<img src="http://photos.tuchong.com/349669/f/6683901.jpg" draggable="true"> 
+<div class="drop-right"></div> 
+</div> 
+<div class="img-div"> 
+<div class="drop-left"></div> 
+<img src="http://photos.tuchong.com/349669/f/5121337.jpg" draggable="true"> 
+<div class="drop-right"></div> 
+</div> 
+</body> 
+</html> 

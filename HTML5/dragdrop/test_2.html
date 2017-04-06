@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+#div1, #div2
+{float:left; width:100px; height:35px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+</style>
+<script type="text/javascript">
+    window.onload = function(){
+        var img = document.getElementById('img');
+        var dropDiv = document.getElementById('div2');
+
+        img.addEventListener('dragstart', function(e){
+            console.info(e.target.id);
+            e.dataTransfer.setData('text/plain', e.target.id);
+        });
+
+        dropDiv.addEventListener('dragover', function(e){
+            e.preventDefault();
+        });
+
+        dropDiv.addEventListener('drop', function(e){
+            var img_id = e.dataTransfer.getData('text/plain');
+            console.info(img_id);
+            console.log(document.getElementById(img_id));
+            console.error(e.target);
+            // e.target 的意思就是指向目标的元素节点
+            e.target.appendChild(document.getElementById(img_id));
+            // 也可以像下面这样写
+            //this.appendChild(document.getElementById(img_id));
+        });
+    }
+</script>
+</head>
+<body>
+<!--
+    text选择框，images图片和链接 缺省是可以拖动的
+    这里可以不用设置 draggable="true"
+-->
+<img src="./w3school_logo_black.gif" id="img" />
+
+<div id="div2"></div>
+
+</body>
+</html>

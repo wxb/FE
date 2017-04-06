@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+
+.col_4{
+    
+    display: block;
+    //width: 21.666666666667%;
+    margin-left: 0.83333333333333%;
+    margin-right: 0.83333333333333%;
+}
+.drop-left,.drop-right { 
+width: 50px; 
+height: 99px; 
+float: left; 
+} 
+</style>
+
+<script src="./jquery-1.11.2.js"></script>
+
+<script type="text/javascript">
+$(function(){
+    var srcImgLi = null; 
+    $('.col_4 img').bind('dragstart', function(){
+        srcImgLi = $(this).parents('li'); 
+        console.log(srcImgLi[0]);
+    });
+    $(".drop-left,.drop-right").bind("dragover", function(event) { 
+
+    // 必须通过event.preventDefault()来设置允许拖放 
+    event.preventDefault(); 
+    }); 
+
+    $(".drop-left").bind("drop", function(event) { 
+        event.preventDefault(); 
+        if(srcImgLi[0] != $(this).parent()[0]) { 
+            console.info(srcImgLi[0]);
+            console.log($(this).parent());
+        $(this).parent().before(srcImgLi); 
+        } 
+    }); 
+    $(".drop-right").bind("drop", function(event) { 
+        event.preventDefault(); 
+        if(srcImgLi[0] != $(this).parent()[0]) { 
+        $(this).parent().after(srcImgLi); 
+        } 
+    }); 
+});
+</script>
+</head>
+<body>
+<div id="sub_img">
+    <ul>
+        
+        <li class="col_4 first column" >
+            <div class="drop-left"></div> 
+            <div style="float:left;">
+            <img src="./w3school_logo_black.gif" style="width: 100%;" draggable="true">
+            01.jpg<br>
+            <a href="/admin/stock_delete_photo?id=5712&amp;file=01.jpg">Delete</a>
+            </div>
+            <div class="drop-right"></div> 
+        </li>
+        
+        <li class="col_4 column" >
+            <div class="drop-left"></div> 
+            <div style="float:left;">
+            <img src="./w3school_logo_black.gif" style="width: 100%;">
+            1.jpg<br>
+            <a href="/admin/stock_delete_photo?id=5712&amp;file=1.jpg">Delete</a>
+            </div>
+            <div class="drop-right"></div> 
+        </li>
+        <li class="col_4 column" draggable="true">
+            <div class="drop-left"></div> 
+            <div style="float:left;">
+            <img src="./w3school_logo_black.gif" style="width: 100%;">
+            20120217150859234.jpg<br>
+            <a href="/admin/stock_delete_photo?id=5712&amp;file=20120217150859234.jpg">Delete</a>
+            </div>
+            <div class="drop-right"></div> 
+        </li>
+        <li class="col_4 last column" draggable="true">
+            <div class="drop-left"></div> 
+            <div style="float:left;">
+            <img src="./w3school_logo_black.gif" style="width: 100%;">
+            292733975780276618.jpg<br>
+            <a href="/admin/stock_delete_photo?id=5712&amp;file=292733975780276618.jpg">Delete</a>
+            </div>
+            <div class="drop-right"></div> 
+        </li>
+                                              
+    </ul>
+</div>
+
+</body>
+</html>
